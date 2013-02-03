@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+//package HW1;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ * @author Parin
+ *
+ */
+public class searchTree {
+  public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		handleFile h=new handleFile();
+		traversal t=new traversal(h.readFile("input.txt"));
+		List<String> bfs=new ArrayList<String>();
+		List<String> ucs=new ArrayList<String>();
+//		ArrayList<String> bfs;
+//		ArrayList<String> ucs;
+		bfs =(List<String>) t.breadthFirstSoln();
+		ucs =(List<String>) t.UniformCost();
+		List<String> newList = new ArrayList<String>(bfs);
+		newList.addAll(ucs);
+		h.writeOutFile(newList);
+
+	}
+
+}
